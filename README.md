@@ -10,7 +10,8 @@ aviso-legal.html      Aviso legal (plantilla, rellenar datos)
 privacidad.html       Política de privacidad (plantilla, rellenar datos)
 404.html              Página de error
 css/styles.css        Estilos del portfolio
-js/main.js            Menú móvil + envío del formulario
+js/main.js            Tema, idioma y envío del formulario
+js/i18n.js            Textos en español, inglés y ruso
 demos/bar/            Demo: bar de tapas
 demos/peluqueria/     Demo: peluquería
 demos/taller/         Demo: taller mecánico
