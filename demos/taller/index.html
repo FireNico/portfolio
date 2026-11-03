@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taller Levante · Demo · FireNico</title>
+  <meta name="description" content="Web de ejemplo para un taller mecánico en Torrevieja. Proyecto demo de FireNico.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <style>
+    :root { --dark:#18181b; --dark2:#27272a; --yellow:#facc15; --light:#f4f4f5; --muted:#a1a1aa; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; background:var(--dark); color:var(--light); line-height:1.6; }
+    .wrap { width:min(100% - 2.5rem, 1080px); margin-inline:auto; }
+    .demo-bar { background:#000; color:#ddd; font-size:.8rem; text-align:center; padding:.5rem 1rem; }
+    .demo-bar a { color:#fff; }
+    nav { display:flex; justify-content:space-between; align-items:center; padding:1.25rem 0; border-bottom:1px solid var(--dark2); }
+    .brand { font-weight:800; text-transform:uppercase; letter-spacing:.04em; font-size:1.15rem; }
+    .brand span { color:var(--yellow); }
+    .btn { display:inline-block; background:var(--yellow); color:var(--dark); font-weight:700; padding:.85rem 1.5rem; border-radius:6px; text-decoration:none; }
+    .btn-sm { padding:.5rem 1rem; font-size:.9rem; }
+    .hero { padding:5.5rem 0 5rem; }
+    .hero h1 { font-size:clamp(2.4rem,6.5vw,4.4rem); line-height:1.02; margin:0 0 1.5rem; font-weight:800; text-transform:uppercase; letter-spacing:-.01em; max-width:14ch; }
+    .hero h1 span { color:var(--yellow); }
+    .hero p { color:var(--muted); max-width:48ch; font-size:1.1rem; margin:0 0 2rem; }
+    .stats { display:flex; gap:3rem; flex-wrap:wrap; margin-top:3.5rem; }
+    .stats strong { display:block; font-size:2rem; color:var(--yellow); }
+    .stats span { color:var(--muted); font-size:.9rem; }
+    section { padding:5rem 0; border-top:1px solid var(--dark2); }
+    h2 { font-size:2rem; text-transform:uppercase; margin:0 0 2.5rem; font-weight:800; }
+    .grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
+    .card { background:var(--dark2); padding:1.75rem; border-radius:8px; border-left:3px solid var(--yellow); }
+    .card h3 { margin:0 0 .4rem; }
+    .card p { margin:0; color:var(--muted); font-size:.95rem; }
+    .quote { background:var(--yellow); color:var(--dark); }
+    .quote h2 { margin-bottom:1rem; }
+    .quote p { max-width:50ch; }
+    .quote .btn { background:var(--dark); color:var(--yellow); }
+    footer { text-align:center; padding:2rem 0; font-size:.85rem; color:var(--muted); }
+    footer a { color:inherit; }
+  </style>
+</head>
+<body>
+  <div class="demo-bar">Proyecto demo de un negocio ficticio · <a href="../../">Volver a FireNico</a></div>
+
+  <div class="wrap">
+    <nav>
+      <span class="brand">Taller <span>Levante</span></span>
+      <a class="btn btn-sm" href="#presupuesto">Presupuesto</a>
+    </nav>
+
+    <header class="hero">
+      <h1>Tu coche, en <span>buenas manos.</span></h1>
+      <p>Mecánica general, diagnosis y pre-ITV en Torrevieja. Te decimos lo que cuesta antes de tocar nada.</p>
+      <a class="btn" href="#presupuesto">Pedir presupuesto gratis</a>
+      <div class="stats">
+        <div><strong>20+</strong><span>años de experiencia</span></div>
+        <div><strong>24 h</strong><span>respuesta a presupuestos</span></div>
+        <div><strong>12 meses</strong><span>de garantía en reparaciones</span></div>
+      </div>
+    </header>
+  </div>
+
+  <main>
+    <section>
+      <div class="wrap">
+        <h2>Servicios</h2>
+        <div class="grid">
+          <div class="card"><h3>Mantenimiento</h3><p>Aceite, filtros y revisión según el libro del fabricante.</p></div>
+          <div class="card"><h3>Diagnosis</h3><p>Lectura de averías electrónicas con equipo multimarca.</p></div>
+          <div class="card"><h3>Frenos y suspensión</h3><p>Pastillas, discos, amortiguadores y alineado.</p></div>
+          <div class="card"><h3>Pre-ITV</h3><p>Revisamos tu coche para que pase la ITV a la primera.</p></div>
+          <div class="card"><h3>Aire acondicionado</h3><p>Carga de gas y revisión del circuito antes del verano.</p></div>
+          <div class="card"><h3>Neumáticos</h3><p>Montaje, equilibrado y reparación de pinchazos.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote" id="presupuesto">
+      <div class="wrap">
+        <h2>¿Cuánto me va a costar?</h2>
+        <p>Cuéntanos qué le pasa a tu coche, marca y modelo, y te enviamos un presupuesto sin compromiso.</p>
+        <a class="btn" href="#">Escribir por WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>Taller Levante es un negocio ficticio. Web de ejemplo diseñada por <a href="../../">FireNico</a>.</footer>
+</body>
+</html>
