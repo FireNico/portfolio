@@ -63,6 +63,34 @@ const browser = (navigator.language || 'es').slice(0, 2);
 const initial = LANGS.includes(saved) ? saved : (LANGS.includes(browser) ? browser : 'es');
 if (initial !== 'es') applyLang(initial);
 
+// ---------- Vistas previas en vivo de las demos ----------
+// Escala cada iframe (pensado a 1280px de ancho) al tamaño de su tarjeta
+// y calcula cuánto debe desplazarse al pasar el ratón por encima.
+const DEMO_WIDTH = 1280;
+
+function fitPreview(preview) {
+  const frame = preview.querySelector('iframe');
+  if (!frame) return;
+  const scale = preview.clientWidth / DEMO_WIDTH;
+  let docHeight = 1600;
+  try {
+    const doc = frame.contentDocument;
+    if (doc?.body) docHeight = Math.max(doc.documentElement.scrollHeight, preview.clientHeight / scale);
+  } catch {}
+  frame.style.height = docHeight + 'px';
+  const travel = Math.max(0, Math.min(docHeight - preview.clientHeight / scale, 1800));
+  preview.style.setProperty('--scale', scale.toFixed(4));
+  preview.style.setProperty('--travel', travel + 'px');
+}
+
+const previews = document.querySelectorAll('.preview');
+const ro = 'ResizeObserver' in window ? new ResizeObserver(entries => entries.forEach(e => fitPreview(e.target))) : null;
+previews.forEach(p => {
+  fitPreview(p);
+  ro?.observe(p);
+  p.querySelector('iframe')?.addEventListener('load', () => fitPreview(p));
+});
+
 // ---------- Año en el pie ----------
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
