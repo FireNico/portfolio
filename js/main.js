@@ -1,26 +1,73 @@
-// Menú móvil
-const toggle = document.querySelector('.nav-toggle');
-const nav = document.getElementById('nav');
+// ---------- Utilidades de almacenamiento (pueden fallar en modo privado) ----------
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+};
 
-if (toggle && nav) {
-  toggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+// ---------- Tema claro / oscuro ----------
+const root = document.documentElement;
+const themeBtn = document.querySelector('.theme-toggle');
+
+if (themeBtn) {
+  themeBtn.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    store.set('theme', next);
   });
-  nav.querySelectorAll('a').forEach(link =>
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    })
-  );
 }
 
-// Año actual en el pie
+// ---------- Idiomas ----------
+const LANGS = ['es', 'en', 'ru'];
+let lang = 'es';
+
+function t(key) {
+  const dict = window.I18N?.[lang] || {};
+  return dict[key] ?? window.I18N?.es?.[key] ?? '';
+}
+
+function applyLang(next) {
+  if (!LANGS.includes(next) || !window.I18N) return;
+  lang = next;
+  root.lang = next;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const v = t(el.dataset.i18n);
+    if (v) el.textContent = v;
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const v = t(el.dataset.i18nHtml);
+    if (v) el.innerHTML = v; // solo textos propios de i18n.js
+  });
+  document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+    const [attr, key] = el.dataset.i18nAttr.split(':');
+    const v = t(key);
+    if (v) el.setAttribute(attr, v);
+  });
+
+  document.title = t('_title');
+  document.querySelector('meta[name="description"]')?.setAttribute('content', t('_desc'));
+
+  document.querySelectorAll('[data-lang]').forEach(b =>
+    b.setAttribute('aria-pressed', String(b.dataset.lang === next))
+  );
+  store.set('lang', next);
+}
+
+document.querySelectorAll('[data-lang]').forEach(b =>
+  b.addEventListener('click', () => applyLang(b.dataset.lang))
+);
+
+// Idioma inicial: el guardado, o el del navegador, o español
+const saved = store.get('lang');
+const browser = (navigator.language || 'es').slice(0, 2);
+const initial = LANGS.includes(saved) ? saved : (LANGS.includes(browser) ? browser : 'es');
+if (initial !== 'es') applyLang(initial);
+
+// ---------- Año en el pie ----------
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
 
-// Envío del formulario sin recargar la página (Web3Forms)
+// ---------- Formulario (Web3Forms) ----------
 const form = document.getElementById('contact-form');
 
 if (form) {
@@ -32,13 +79,13 @@ if (form) {
 
     if (form.access_key.value === 'TU_ACCESS_KEY') {
       status.className = 'form-status err';
-      status.textContent = 'Formulario aún no configurado (falta la clave de Web3Forms).';
+      status.textContent = t('fNotConfigured');
       return;
     }
 
     button.disabled = true;
     status.className = 'form-status';
-    status.textContent = 'Enviando…';
+    status.textContent = t('fSending');
 
     try {
       const res = await fetch(form.action, {
@@ -51,10 +98,10 @@ if (form) {
 
       form.reset();
       status.className = 'form-status ok';
-      status.textContent = '¡Gracias! He recibido tu mensaje y te responderé pronto.';
+      status.textContent = t('fOk');
     } catch {
       status.className = 'form-status err';
-      status.textContent = 'No se ha podido enviar. Inténtalo de nuevo en unos minutos.';
+      status.textContent = t('fErr');
     } finally {
       button.disabled = false;
     }
