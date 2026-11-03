@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://firenico.es/sitemap.xml
+Sitemap: https://firenico-portfolio.netlify.app/sitemap.xml

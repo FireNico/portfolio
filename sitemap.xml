@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- TODO: cambia firenico.es por tu dominio real -->
+<!-- TODO: cambia la URL por tu dominio propio cuando lo tengas -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://firenico.es/</loc></url>
-  <url><loc>https://firenico.es/demos/bar/</loc></url>
-  <url><loc>https://firenico.es/demos/peluqueria/</loc></url>
-  <url><loc>https://firenico.es/demos/taller/</loc></url>
+  <url><loc>https://firenico-portfolio.netlify.app/</loc></url>
+  <url><loc>https://firenico-portfolio.netlify.app/demos/bar/</loc></url>
+  <url><loc>https://firenico-portfolio.netlify.app/demos/peluqueria/</loc></url>
+  <url><loc>https://firenico-portfolio.netlify.app/demos/taller/</loc></url>
 </urlset>
