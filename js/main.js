@@ -10,8 +10,8 @@ const themeBtn = document.querySelector('.theme-toggle');
 
 if (themeBtn) {
   themeBtn.addEventListener('click', () => {
-    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    root.dataset.theme = next;
+    const next = root.dataset.bsTheme === 'dark' ? 'light' : 'dark';
+    root.dataset.bsTheme = next; // modo de color de Bootstrap 5.3
     store.set('theme', next);
   });
 }
@@ -78,13 +78,13 @@ if (form) {
     e.preventDefault();
 
     if (form.access_key.value === 'TU_ACCESS_KEY') {
-      status.className = 'form-status err';
+      status.className = 'form-status small mt-3 mb-0 text-danger';
       status.textContent = t('fNotConfigured');
       return;
     }
 
     button.disabled = true;
-    status.className = 'form-status';
+    status.className = 'form-status small mt-3 mb-0';
     status.textContent = t('fSending');
 
     try {
@@ -97,10 +97,10 @@ if (form) {
       if (!res.ok || !data.success) throw new Error(data.message);
 
       form.reset();
-      status.className = 'form-status ok';
+      status.className = 'form-status small mt-3 mb-0 text-success';
       status.textContent = t('fOk');
     } catch {
-      status.className = 'form-status err';
+      status.className = 'form-status small mt-3 mb-0 text-danger';
       status.textContent = t('fErr');
     } finally {
       button.disabled = false;

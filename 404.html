@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Página no encontrada · FireNico</title>
   <meta name="robots" content="noindex">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <script>try{const t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script>try{const t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.bsTheme=t}catch(e){}</script>
+  <link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <main class="container hero">
-    <p class="eyebrow">Error 404</p>
-    <h1>Esta página no existe.</h1>
-    <p class="lead">Puede que el enlace esté mal o que la página se haya movido.</p>
-    <a href="/" class="btn btn-primary">Volver al inicio</a>
+  <main class="container py-5 my-lg-5">
+    <p class="eyebrow text-uppercase text-accent fw-semibold mb-3">Error 404</p>
+    <h1 class="display-5 fw-normal">Esta página no existe.</h1>
+    <p class="lead text-body-secondary mb-4">Puede que el enlace esté mal o que la página se haya movido.</p>
+    <a href="/" class="btn btn-fn">Volver al inicio</a>
   </main>
 </body>
 </html>

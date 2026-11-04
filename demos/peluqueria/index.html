@@ -7,90 +7,87 @@
   <meta name="description" content="Web de ejemplo para una peluquería en Torrevieja. Proyecto demo de FireNico.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
   <style>
-    :root { --bg:#f7f3ef; --sand:#ece4dc; --ink:#3a2f29; --muted:#8a7b70; --accent:#a47864; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color:var(--ink); background:var(--bg); line-height:1.7; font-weight:300; }
-    .wrap { width:min(100% - 2.5rem, 1040px); margin-inline:auto; }
-    .demo-bar { background:#111; color:#ddd; font-size:.8rem; text-align:center; padding:.5rem 1rem; font-weight:400; }
-    .demo-bar a { color:#fff; }
-    nav { display:flex; justify-content:space-between; align-items:center; padding:1.5rem 0; }
-    .brand { letter-spacing:.35em; text-transform:uppercase; font-size:.95rem; font-weight:400; }
-    .cita { border:1px solid var(--ink); padding:.55rem 1.2rem; text-decoration:none; color:var(--ink); font-size:.85rem; letter-spacing:.1em; text-transform:uppercase; }
-    .cita:hover { background:var(--ink); color:var(--bg); }
-    .hero { display:grid; gap:3rem; grid-template-columns:1fr; align-items:center; padding:3rem 0 5rem; }
-    @media (min-width:820px){ .hero { grid-template-columns:1.1fr 1fr; } }
-    .hero h1 { font-weight:300; font-size:clamp(2.4rem,6vw,4rem); line-height:1.1; margin:0 0 1.5rem; letter-spacing:-.02em; }
-    .hero p { color:var(--muted); max-width:42ch; margin:0 0 2rem; }
+    :root {
+      --bg:#f7f3ef; --sand:#ece4dc; --ink:#3a2f29; --muted:#8a7b70; --line:#e0d6cc;
+      --bs-body-bg: var(--bg); --bs-body-color: var(--ink);
+      --bs-body-font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --bs-body-font-weight: 300; --bs-body-line-height: 1.7;
+    }
+    a { color: inherit; }
+    .wrap { max-width: 1040px; }
+    .text-muted-brand { color: var(--muted); }
+    .brand { letter-spacing:.35em; font-size:.95rem; }
+    .btn-cita {
+      --bs-btn-color: var(--ink); --bs-btn-border-color: var(--ink); --bs-btn-border-radius: 0;
+      --bs-btn-hover-bg: var(--ink); --bs-btn-hover-color: var(--bg); --bs-btn-hover-border-color: var(--ink);
+      --bs-btn-font-size: .85rem; --bs-btn-font-weight: 300; --bs-btn-padding-x: 1.2rem; --bs-btn-padding-y: .55rem;
+      letter-spacing:.1em;
+    }
+    .hero-title { font-size:clamp(2.4rem,6vw,4rem); line-height:1.1; letter-spacing:-.02em; }
+    .hero-text { max-width:42ch; }
     .visual { aspect-ratio:4/5; background:linear-gradient(160deg,var(--sand),#d8c9bb); border-radius:200px 200px 8px 8px; }
-    section { padding:5rem 0; border-top:1px solid #e0d6cc; }
-    h2 { font-weight:300; font-size:2rem; margin:0 0 2.5rem; }
-    .services { display:grid; gap:1px; background:#e0d6cc; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); border:1px solid #e0d6cc; }
-    .service { background:var(--bg); padding:2rem; }
-    .service h3 { font-weight:400; margin:0 0 .5rem; font-size:1.1rem; }
-    .service p { margin:0; color:var(--muted); font-size:.95rem; }
-    .team { display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); }
-    .person .ph { aspect-ratio:1; background:var(--sand); border-radius:50%; margin-bottom:1rem; max-width:180px; }
-    .person h3 { font-weight:400; margin:0; }
-    .person p { margin:0; color:var(--muted); font-size:.9rem; }
-    .cta { text-align:center; }
-    .cta p { color:var(--muted); }
-    footer { text-align:center; padding:2rem 0; font-size:.85rem; color:var(--muted); }
-    footer a { color:inherit; }
+    .section { border-top:1px solid var(--line); }
+    .services { display:grid; gap:1px; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); background: var(--line); border:1px solid var(--line); }
+    .service { background: var(--bg); }
+    .ph { aspect-ratio:1; background:var(--sand); max-width:180px; }
   </style>
 </head>
 <body>
-  <div class="demo-bar">Proyecto demo de un negocio ficticio · <a href="../../">Volver a FireNico</a></div>
+  <div class="bg-dark text-light small text-center py-2 px-3 fw-normal">Proyecto demo de un negocio ficticio · <a class="text-white" href="../../">Volver a FireNico</a></div>
 
-  <div class="wrap">
-    <nav>
-      <span class="brand">Estudio Brisa</span>
-      <a class="cita" href="#cita">Pedir cita</a>
+  <div class="container wrap">
+    <nav class="d-flex justify-content-between align-items-center py-4">
+      <span class="brand text-uppercase fw-normal">Estudio Brisa</span>
+      <a class="btn btn-cita text-uppercase" href="#cita">Pedir cita</a>
     </nav>
 
-    <header class="hero">
-      <div>
-        <h1>Tu pelo, con calma y cuidado.</h1>
-        <p>Peluquería en Torrevieja especializada en color natural y cortes que se adaptan a tu día a día.</p>
-        <a class="cita" href="#cita">Reservar ahora</a>
+    <header class="row align-items-center g-5 pt-4 pb-5 mb-4">
+      <div class="col-md-6 col-lg-7">
+        <h1 class="hero-title fw-light mb-4">Tu pelo, con calma y cuidado.</h1>
+        <p class="hero-text text-muted-brand mb-4">Peluquería en Torrevieja especializada en color natural y cortes que se adaptan a tu día a día.</p>
+        <a class="btn btn-cita text-uppercase" href="#cita">Reservar ahora</a>
       </div>
-      <div class="visual" role="img" aria-label="Imagen del salón"></div>
+      <div class="col-md-6 col-lg-5">
+        <div class="visual" role="img" aria-label="Imagen del salón"></div>
+      </div>
     </header>
   </div>
 
   <main>
-    <section>
-      <div class="wrap">
-        <h2>Servicios</h2>
+    <section class="section py-5">
+      <div class="container wrap py-lg-4">
+        <h2 class="fw-light fs-2 mb-5">Servicios</h2>
         <div class="services">
-          <div class="service"><h3>Corte y peinado</h3><p>Asesoramiento personalizado según tu tipo de pelo.</p></div>
-          <div class="service"><h3>Color</h3><p>Mechas, balayage y tintes con productos respetuosos.</p></div>
-          <div class="service"><h3>Tratamientos</h3><p>Hidratación y reparación para pelo dañado por el sol y la sal.</p></div>
-          <div class="service"><h3>Novias y eventos</h3><p>Prueba previa y peinado el día del evento.</p></div>
+          <div class="service p-4"><h3 class="fw-normal fs-5 mb-2">Corte y peinado</h3><p class="text-muted-brand small mb-0">Asesoramiento personalizado según tu tipo de pelo.</p></div>
+          <div class="service p-4"><h3 class="fw-normal fs-5 mb-2">Color</h3><p class="text-muted-brand small mb-0">Mechas, balayage y tintes con productos respetuosos.</p></div>
+          <div class="service p-4"><h3 class="fw-normal fs-5 mb-2">Tratamientos</h3><p class="text-muted-brand small mb-0">Hidratación y reparación para pelo dañado por el sol y la sal.</p></div>
+          <div class="service p-4"><h3 class="fw-normal fs-5 mb-2">Novias y eventos</h3><p class="text-muted-brand small mb-0">Prueba previa y peinado el día del evento.</p></div>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="wrap">
-        <h2>El equipo</h2>
-        <div class="team">
-          <div class="person"><div class="ph"></div><h3>Lucía</h3><p>Colorista</p></div>
-          <div class="person"><div class="ph"></div><h3>Marta</h3><p>Estilista</p></div>
-          <div class="person"><div class="ph"></div><h3>Andrea</h3><p>Tratamientos</p></div>
+    <section class="section py-5">
+      <div class="container wrap py-lg-4">
+        <h2 class="fw-light fs-2 mb-5">El equipo</h2>
+        <div class="row row-cols-1 row-cols-sm-3 g-4">
+          <div class="col"><div class="ph rounded-circle mb-3"></div><h3 class="fw-normal fs-5 mb-0">Lucía</h3><p class="text-muted-brand small mb-0">Colorista</p></div>
+          <div class="col"><div class="ph rounded-circle mb-3"></div><h3 class="fw-normal fs-5 mb-0">Marta</h3><p class="text-muted-brand small mb-0">Estilista</p></div>
+          <div class="col"><div class="ph rounded-circle mb-3"></div><h3 class="fw-normal fs-5 mb-0">Andrea</h3><p class="text-muted-brand small mb-0">Tratamientos</p></div>
         </div>
       </div>
     </section>
 
-    <section id="cita" class="cta">
-      <div class="wrap">
-        <h2>¿Te reservamos un hueco?</h2>
-        <p>Escríbenos por WhatsApp y te confirmamos la cita en el momento.</p>
-        <a class="cita" href="#">Pedir cita por WhatsApp</a>
+    <section id="cita" class="section py-5 text-center">
+      <div class="container wrap py-lg-4">
+        <h2 class="fw-light fs-2 mb-4">¿Te reservamos un hueco?</h2>
+        <p class="text-muted-brand">Escríbenos por WhatsApp y te confirmamos la cita en el momento.</p>
+        <a class="btn btn-cita text-uppercase" href="#">Pedir cita por WhatsApp</a>
       </div>
     </section>
   </main>
 
-  <footer>Estudio Brisa es un negocio ficticio. Web de ejemplo diseñada por <a href="../../">FireNico</a>.</footer>
+  <footer class="text-center py-4 small text-muted-brand">Estudio Brisa es un negocio ficticio. Web de ejemplo diseñada por <a href="../../">FireNico</a>.</footer>
 </body>
 </html>
