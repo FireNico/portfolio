@@ -2,52 +2,74 @@
    FireNico — estilos propios sobre Bootstrap 5.3
    Bootstrap se sirve en local (vendor/bootstrap) para no depender de CDNs
    ni enviar datos a terceros (rendimiento y RGPD).
-   Aquí solo van los colores de marca y lo que Bootstrap no trae de serie.
+
+   Estilo: minimalista, esquinas rectas y paleta pastel apagada.
+   Para cambiar los colores basta con tocar las variables de este bloque.
    ========================================================================== */
 
-/* ---------- Colores por tema (variables de Bootstrap + propias --fn-*) ---------- */
+/* ---------- Colores por tema ---------- */
 [data-bs-theme="dark"] {
-  --bs-body-bg: #0e0e10;
-  --bs-body-bg-rgb: 14, 14, 16;
-  --bs-body-color: #ededeb;
-  --bs-body-color-rgb: 237, 237, 235;
-  --bs-emphasis-color: #ededeb;
-  --bs-secondary-color: #9a9995;
-  --bs-secondary-color-rgb: 154, 153, 149;
-  --bs-tertiary-bg: #1d1d22;
-  --bs-border-color: #2a2a30;
-  --fn-surface: #16161a;
-  --fn-accent: #f97316;
-  --fn-accent-rgb: 249, 115, 22;
-  --fn-accent-soft: rgba(249, 115, 22, .12);
-  --fn-btn-bg: #ededeb;
-  --fn-btn-text: #0e0e10;
-  --fn-input-bg: #121215;
+  --bs-body-bg: #1b1c22;
+  --bs-body-bg-rgb: 27, 28, 34;
+  --bs-body-color: #e4e2ea;
+  --bs-body-color-rgb: 228, 226, 234;
+  --bs-emphasis-color: #f2f0f6;
+  --bs-secondary-color: #9a98a6;
+  --bs-secondary-color-rgb: 154, 152, 166;
+  --bs-tertiary-bg: #24252d;
+  --bs-border-color: #30313b;
+
+  --fn-surface: transparent;
+  --fn-accent: #e3b4a0;          /* melocotón empolvado */
+  --fn-accent-rgb: 227, 180, 160;
+  --fn-accent-soft: rgba(227, 180, 160, .08);
+  --fn-btn-bg: #e3b4a0;
+  --fn-btn-text: #1b1c22;
+  --fn-btn-hover-bg: #ecc7b7;
+  --fn-input-bg: transparent;
+
+  /* Tonos pastel oscuros para las miniaturas de proyectos */
+  --fn-tone-1: #34404c;  --fn-tone-1-text: #b9cde0;   /* azul niebla */
+  --fn-tone-2: #463c40;  --fn-tone-2-text: #e2c4c9;   /* rosa ceniza */
+  --fn-tone-3: #3d4236;  --fn-tone-3-text: #d8dcae;   /* oliva salvia */
+  --fn-tone-4: #3a3747;  --fn-tone-4-text: #c3bbe2;   /* lavanda */
 }
 
 [data-bs-theme="light"] {
-  --bs-body-bg: #fafaf9;
-  --bs-body-bg-rgb: 250, 250, 249;
-  --bs-body-color: #1c1c1a;
-  --bs-body-color-rgb: 28, 28, 26;
-  --bs-emphasis-color: #1c1c1a;
-  --bs-secondary-color: #6b6a66;
-  --bs-secondary-color-rgb: 107, 106, 102;
-  --bs-tertiary-bg: #f2f1ee;
-  --bs-border-color: #e2e0db;
-  --fn-surface: #ffffff;
-  --fn-accent: #c2410c;
-  --fn-accent-rgb: 194, 65, 12;
-  --fn-accent-soft: rgba(194, 65, 12, .08);
-  --fn-btn-bg: #1c1c1a;
-  --fn-btn-text: #fafaf9;
-  --fn-input-bg: #ffffff;
+  --bs-body-bg: #f3f1ed;
+  --bs-body-bg-rgb: 243, 241, 237;
+  --bs-body-color: #2a2930;
+  --bs-body-color-rgb: 42, 41, 48;
+  --bs-emphasis-color: #1d1c22;
+  --bs-secondary-color: #6f6d78;
+  --bs-secondary-color-rgb: 111, 109, 120;
+  --bs-tertiary-bg: #e8e5df;
+  --bs-border-color: #d9d5ce;
+
+  --fn-surface: transparent;
+  --fn-accent: #a8695a;          /* terracota suave */
+  --fn-accent-rgb: 168, 105, 90;
+  --fn-accent-soft: rgba(168, 105, 90, .07);
+  --fn-btn-bg: #2a2930;
+  --fn-btn-text: #f3f1ed;
+  --fn-btn-hover-bg: #a8695a;
+  --fn-input-bg: transparent;
+
+  --fn-tone-1: #cfd9e2;  --fn-tone-1-text: #34485a;
+  --fn-tone-2: #e6d6d8;  --fn-tone-2-text: #5a4045;
+  --fn-tone-3: #dcdfc8;  --fn-tone-3-text: #4b5032;
+  --fn-tone-4: #dad5e8;  --fn-tone-4-text: #4a4266;
 }
 
+/* ---------- Base: tipografía y esquinas rectas ---------- */
 :root {
   --bs-body-font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --bs-border-radius: .5rem;
-  --bs-border-radius-lg: .75rem;
+  --bs-border-radius: 0;
+  --bs-border-radius-sm: 0;
+  --bs-border-radius-lg: 0;
+  --bs-border-radius-xl: 0;
+  --bs-border-radius-xxl: 0;
+  --bs-border-radius-pill: 0;
   --bs-focus-ring-color: rgba(var(--fn-accent-rgb), .35);
 }
 
@@ -59,118 +81,126 @@ html { scroll-behavior: smooth; }
 
 body { -webkit-font-smoothing: antialiased; transition: background-color .25s, color .25s; }
 a { color: inherit; }
-h1, h2, h3 { letter-spacing: -0.02em; font-weight: 600; }
-:focus-visible { outline: 2px solid var(--fn-accent); outline-offset: 3px; }
+h1, h2, h3 { letter-spacing: -0.01em; font-weight: 500; }
+:focus-visible { outline: 1px solid var(--fn-accent); outline-offset: 3px; }
 
 /* ---------- Utilidades de marca ---------- */
 .text-accent { color: var(--fn-accent) !important; }
-.bg-surface { background-color: var(--fn-surface) !important; }
 .link-accent { text-decoration: none; }
 .link-accent:hover { color: var(--fn-accent); }
-.eyebrow { font-size: .75rem; letter-spacing: .14em; }
+.link-muted { color: var(--bs-secondary-color); text-decoration: none; }
+.link-muted:hover { color: var(--bs-body-color); }
+.eyebrow { font-size: .72rem; letter-spacing: .18em; font-weight: 500 !important; }
 
-/* Botón principal: usa la API de variables de .btn de Bootstrap */
+/* Botón principal: plano, recto, sin sombras */
 .btn-fn {
   --bs-btn-color: var(--fn-btn-text);
   --bs-btn-bg: var(--fn-btn-bg);
   --bs-btn-border-color: var(--fn-btn-bg);
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: var(--fn-accent);
-  --bs-btn-hover-border-color: var(--fn-accent);
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: var(--fn-accent);
-  --bs-btn-active-border-color: var(--fn-accent);
+  --bs-btn-hover-color: var(--fn-btn-text);
+  --bs-btn-hover-bg: var(--fn-btn-hover-bg);
+  --bs-btn-hover-border-color: var(--fn-btn-hover-bg);
+  --bs-btn-active-color: var(--fn-btn-text);
+  --bs-btn-active-bg: var(--fn-btn-hover-bg);
+  --bs-btn-active-border-color: var(--fn-btn-hover-bg);
   --bs-btn-disabled-color: var(--fn-btn-text);
   --bs-btn-disabled-bg: var(--fn-btn-bg);
   --bs-btn-disabled-border-color: var(--fn-btn-bg);
   --bs-btn-padding-x: 1.4rem;
-  --bs-btn-padding-y: .75rem;
-  --bs-btn-font-weight: 600;
+  --bs-btn-padding-y: .7rem;
+  --bs-btn-font-size: .9rem;
+  --bs-btn-font-weight: 500;
+  letter-spacing: .02em;
 }
+[data-bs-theme="light"] .btn-fn { --bs-btn-hover-color: #fff; --bs-btn-active-color: #fff; }
 .btn:disabled { cursor: wait; }
 
 /* ---------- Columna izquierda ---------- */
 @media (min-width: 992px) {
-  .sidebar { width: 340px; border-bottom: 0 !important; border-right: var(--bs-border-width) solid var(--bs-border-color); }
+  .sidebar { width: 320px; border-bottom: 0 !important; border-right: var(--bs-border-width) solid var(--bs-border-color); }
   .sidebar-inner { min-height: 100vh; max-height: 100vh; overflow-y: auto; }
 }
 
+.lang { padding: 0 !important; }
 .lang .btn {
-  --bs-btn-padding-x: .65rem;
-  --bs-btn-padding-y: .3rem;
-  --bs-btn-font-size: .78rem;
-  --bs-btn-font-weight: 600;
+  --bs-btn-padding-x: .7rem;
+  --bs-btn-padding-y: .35rem;
+  --bs-btn-font-size: .72rem;
+  --bs-btn-font-weight: 500;
   --bs-btn-color: var(--bs-secondary-color);
   --bs-btn-hover-color: var(--bs-body-color);
   --bs-btn-border-width: 0;
-  letter-spacing: .04em;
+  letter-spacing: .08em;
 }
-.lang .btn[aria-pressed="true"] { background: var(--bs-tertiary-bg); color: var(--bs-body-color); }
+.lang .btn[aria-pressed="true"] { background: var(--bs-tertiary-bg); color: var(--fn-accent); }
 
 .theme-toggle {
-  width: 38px; height: 38px; padding: 0;
-  --bs-btn-color: var(--bs-body-color);
+  width: 34px; height: 34px; padding: 0;
+  --bs-btn-color: var(--bs-secondary-color);
   --bs-btn-border-color: var(--bs-border-color);
-  --bs-btn-hover-color: var(--bs-body-color);
-  --bs-btn-hover-border-color: var(--bs-secondary-color);
-  --bs-btn-active-color: var(--bs-body-color);
+  --bs-btn-hover-color: var(--fn-accent);
+  --bs-btn-hover-border-color: var(--fn-accent);
+  --bs-btn-active-color: var(--fn-accent);
 }
-.icon { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.icon { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: square; stroke-linejoin: miter; }
 [data-bs-theme="dark"] .icon-moon,
 [data-bs-theme="light"] .icon-sun { display: none; }
 
 .avatar {
-  width: 120px; height: 120px; object-fit: cover;
-  background: linear-gradient(140deg, var(--fn-accent), #7c2d12);
-  font-size: 2.75rem; border: 3px solid var(--bs-tertiary-bg);
+  width: 96px; height: 96px; object-fit: cover;
+  background: var(--fn-tone-4); color: var(--fn-tone-4-text) !important;
+  font-size: 2.2rem; font-weight: 400 !important;
 }
 
 /* ---------- Columna derecha ---------- */
-@media (min-width: 992px) { .content { padding: 4.5rem 3.5rem 5rem !important; } }
-.intro-title { font-size: clamp(2rem, 4.2vw, 3.1rem); max-width: 20ch; }
-.lead { max-width: 56ch; }
+@media (min-width: 992px) { .content { padding: 5rem 4rem 5rem !important; } }
+.intro-title { font-size: clamp(1.9rem, 3.8vw, 2.8rem); font-weight: 400; max-width: 20ch; line-height: 1.15; }
+.lead { font-size: 1.05rem; font-weight: 300; max-width: 56ch; }
 .block { scroll-margin-top: 2rem; }
+.block > header { border-bottom: 1px solid var(--bs-border-color); padding-bottom: .9rem; }
+.block > header h2 { font-size: 1rem !important; text-transform: uppercase; letter-spacing: .14em; font-weight: 500; }
 
-/* ---------- Tarjetas ---------- */
+/* ---------- Tarjetas: sin fondo, solo línea fina ---------- */
 .card {
   --bs-card-bg: var(--fn-surface);
   --bs-card-border-color: var(--bs-border-color);
-  --bs-card-border-radius: var(--bs-border-radius-lg);
   --bs-card-spacer-x: 1.25rem;
+  --bs-card-spacer-y: 1.1rem;
 }
-.card-project { transition: transform .25s, border-color .25s; }
-.card-project:hover { transform: translateY(-4px); border-color: var(--fn-accent); }
+.card-project { transition: border-color .2s; }
+.card-project:hover { border-color: var(--fn-accent); }
 .card-project .arrow { transition: transform .2s, color .2s; }
 .card-project:hover .arrow { color: var(--fn-accent); transform: translate(2px, -2px); }
+.card-project .thumb { border-bottom: 1px solid var(--bs-border-color); }
 .card-next { border-style: dashed; }
 
-.thumb { font-size: 1.3rem; }
-.thumb-bar    { background: #1f3a4d; color: #f1e6d2; font-family: Georgia, serif; font-style: italic; }
-.thumb-pelu   { background: #ece4dc; color: #4a3b33; font-weight: 300; letter-spacing: .25em; text-transform: uppercase; font-size: .95rem; }
-.thumb-taller { background: #18181b; color: #facc15; text-transform: uppercase; font-weight: 800; letter-spacing: .04em; }
-.thumb-next   { background: var(--fn-accent-soft); color: var(--fn-accent); font-size: 2.5rem; font-weight: 300; border-bottom: 1px dashed var(--bs-border-color); }
+.thumb { font-size: 1.15rem; }
+.thumb-bar    { background: var(--fn-tone-1); color: var(--fn-tone-1-text); font-family: Georgia, serif; font-style: italic; }
+.thumb-pelu   { background: var(--fn-tone-2); color: var(--fn-tone-2-text); font-weight: 300; letter-spacing: .25em; text-transform: uppercase; font-size: .85rem; }
+.thumb-taller { background: var(--fn-tone-3); color: var(--fn-tone-3-text); text-transform: uppercase; font-weight: 700; letter-spacing: .06em; }
+.thumb-next   { background: var(--fn-accent-soft); color: var(--fn-accent); font-size: 2rem; font-weight: 200; }
 
-.tag { font-size: .68rem; letter-spacing: .08em; font-weight: 500; color: var(--bs-secondary-color); border: 1px solid var(--bs-border-color); }
+.tag { font-size: .64rem; letter-spacing: .12em; font-weight: 500; color: var(--bs-secondary-color); border: 1px solid var(--bs-border-color); padding: .25em .6em; }
 .tag-accent { color: var(--fn-accent); border-color: var(--fn-accent); }
 
-/* ---------- Formulario ---------- */
+/* ---------- Formulario: campos con línea inferior ---------- */
 .contact-form { max-width: 720px; }
+.form-label { font-size: .75rem !important; text-transform: uppercase; letter-spacing: .1em; color: var(--bs-secondary-color); }
 .form-control {
   --bs-body-bg: var(--fn-input-bg);
-  padding: .75rem .9rem;
+  padding: .6rem 0;
+  border-width: 0 0 1px;
+  background: transparent;
 }
-.form-control:focus { border-color: var(--fn-accent); box-shadow: 0 0 0 .2rem var(--bs-focus-ring-color); }
-.form-check-input { width: 1.1em; height: 1.1em; }
+.form-control:focus { background: transparent; border-color: var(--fn-accent); box-shadow: none; }
+.form-check-input { width: 1em; height: 1em; background-color: transparent; }
 .form-check-input:checked { background-color: var(--fn-accent); border-color: var(--fn-accent); }
-.form-check-input:focus { border-color: var(--fn-accent); box-shadow: 0 0 0 .2rem var(--bs-focus-ring-color); }
+.form-check-input:focus { border-color: var(--fn-accent); box-shadow: none; }
 
 /* ---------- Páginas secundarias (legales y 404) ---------- */
-.logo { letter-spacing: -0.03em; }
+.logo { letter-spacing: .02em; font-weight: 500 !important; }
 .legal { max-width: 720px; }
-.legal h2 { font-size: 1.2rem; margin-top: 2.5rem; }
+.legal h1 { font-weight: 400 !important; }
+.legal h2 { font-size: 1.05rem; font-weight: 500; margin-top: 2.5rem; }
 .legal p, .legal li { color: var(--bs-secondary-color); }
-.legal .note { background: var(--fn-accent-soft); border-color: var(--fn-accent); color: var(--bs-body-color); }
-
-/* Enlace discreto: gris y se resalta al pasar el ratón */
-.link-muted { color: var(--bs-secondary-color); text-decoration: none; }
-.link-muted:hover { color: var(--bs-body-color); }
+.legal .note { background: var(--fn-accent-soft); border-color: var(--fn-accent) !important; border-width: 0 0 0 2px !important; color: var(--bs-body-color); }
