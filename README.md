@@ -1,6 +1,8 @@
 # FireNico — Portfolio
 
-Web estática (HTML + CSS + JS, sin dependencias) con el portfolio y tres webs demo.
+Web estática (HTML + CSS + JS) maquetada con **Bootstrap 5.3** con el portfolio y tres webs demo.
+
+Bootstrap se sirve en local desde `vendor/bootstrap/` (sin CDN): no se envían datos a terceros y no hay paso de build. Solo se usa el CSS; no hace falta el JS de Bootstrap.
 
 ## Estructura
 
@@ -9,8 +11,9 @@ index.html            Portada del portfolio
 aviso-legal.html      Aviso legal (plantilla, rellenar datos)
 privacidad.html       Política de privacidad (plantilla, rellenar datos)
 404.html              Página de error
-css/styles.css        Estilos del portfolio
-js/main.js            Tema, idioma y envío del formulario
+vendor/bootstrap/     Bootstrap 5.3.3 (CSS minificado)
+css/styles.css        Colores de marca y ajustes sobre Bootstrap
+js/main.js            Tema (data-bs-theme), idioma y envío del formulario
 js/i18n.js            Textos en español, inglés y ruso
 demos/bar/            Demo: bar de tapas
 demos/peluqueria/     Demo: peluquería

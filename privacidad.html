@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Política de privacidad · FireNico</title>
   <meta name="robots" content="noindex, follow">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <script>try{const t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script>try{const t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.bsTheme=t}catch(e){}</script>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="./" class="logo">Fire<span>Nico</span></a>
-      <a href="./" class="back-link">← Volver</a>
+  <header class="border-bottom">
+    <div class="container d-flex align-items-center justify-content-between py-3">
+      <a href="./" class="logo fs-5 fw-bold text-decoration-none">Fire<span class="text-accent">Nico</span></a>
+      <a href="./" class="link-muted">← Volver</a>
     </div>
   </header>
 
-  <main class="container legal">
-    <h1>Política de privacidad</h1>
+  <main class="container py-5">
+    <div class="legal py-lg-4">
+    <h1 class="display-6 fw-semibold mb-4">Política de privacidad</h1>
 
-    <p class="note">Plantilla orientativa. Sustituye los datos entre corchetes antes de publicar y, si tienes dudas, revísala con un asesor.</p>
+    <p class="note border rounded-3 px-4 py-3 small">Plantilla orientativa. Sustituye los datos entre corchetes antes de publicar y, si tienes dudas, revísala con un asesor.</p>
 
     <h2>1. Responsable del tratamiento</h2>
     <ul>
@@ -47,12 +49,13 @@
 
     <h2>7. Cookies</h2>
     <p>Este sitio web no utiliza cookies propias ni de terceros.</p>
+    </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2026 FireNico · Torrevieja, Alicante</p>
-      <nav aria-label="Legal"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a></nav>
+  <footer class="border-top py-4 small text-body-secondary">
+    <div class="container d-flex flex-wrap justify-content-between gap-3">
+      <p class="mb-0">© 2026 FireNico · Torrevieja, Alicante</p>
+      <nav class="d-flex gap-4" aria-label="Legal"><a class="link-muted" href="aviso-legal.html">Aviso legal</a><a class="link-muted" href="privacidad.html">Privacidad</a></nav>
     </div>
   </footer>
 </body>
